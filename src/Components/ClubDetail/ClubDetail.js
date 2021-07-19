@@ -14,7 +14,7 @@ const ClubDetail = (props) => {
            <h3>{strLeague}</h3>
            <p>{strSport}</p>
            <p>{strLeagueAlternate}</p>
-           <button onClick={() => history.push('/Leagues/idLeague')} className="btn btn-success">Explore >> </button>
+           <button onClick={() => history.push('/Leagues/idLeague')} className="btn btn-success">Explore </button>
         </div>
         
     );
