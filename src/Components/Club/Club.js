@@ -12,10 +12,12 @@ const Club = () => {
        },[])
   
     return (
-        <div className="bg-success">
+      <div className="container">
+        <div className="row">
           {
-            leagues.map(league => <ClubDetail league={league}></ClubDetail>)
+            leagues.map(league => <ClubDetail    style={{height:400,width:150}}  league={league}></ClubDetail>)
           }
+        </div>
         </div>
     );
 };

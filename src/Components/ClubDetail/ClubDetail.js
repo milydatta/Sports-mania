@@ -1,22 +1,28 @@
 import React from 'react';
-import { useHistory } from 'react-router';
-// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-// import { faAngleDoubleRight, faCoffee } from '@fortawesome/free-solid-svg-icons';
+import { Link } from 'react-router-dom';
+// import { useContext } from 'react';
+// import { CategoryContext } from '../../App';
+import './ClubDetail.css';
 
 
 const ClubDetail = (props) => {
-    const {idLeague, strLeague, strSport, strLeagueAlternate} = props.league;
-    const history = useHistory();
+    const {strBadge,idLeague, strLeague, strSport, strLeagueAlternate} = props.league;
+    // const [category, setCategory] = useContext(CategoryContext);
  
     return (
-        <div className="col-md-3 card float-left p-5" >
+       
+        <div className="col-md-4">
+            <div className="card m-2 p-4">
+             <h3 style={{height:50}}>{strBadge}</h3>   
             <h3><strong>id</strong>:{idLeague}</h3>
            <h3>{strLeague}</h3>
            <p>{strSport}</p>
            <p>{strLeagueAlternate}</p>
-           <button onClick={() => history.push('/Leagues/idLeague')} className="btn btn-success">Explore </button>
+           <Link to="/description"><button className="btn btn-success">Explore </button></Link>
         </div>
-        
+        </div>
+    
+    
     );
 };
 

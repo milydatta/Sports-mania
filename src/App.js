@@ -1,39 +1,36 @@
-import React from "react";
+import React, { createContext } from "react";
 import {
   BrowserRouter as Router,
   Switch,
   Route,
   Link
 } from "react-router-dom";
+import { useState } from "react";
 import './App.css';
-import Club from './Components/Club/Club';
-import Header from './Components/Header/Header';
-import League from "./Components/League/League";
+import Description from './Components/Description/Description';
+import Home from './Components/Home/Home';
 
+
+export const CategoryContext = createContext();
 function App() {
+  const [category, setCategory] = useState({})
   return (
     <div className="bg-success">
-              <Router>
-         <div>
-         <ul>
-            <li>
-               <Link to="/">Home</Link>
-            </li>
-          </ul>
-         <Switch>
-         <Route exact path="/">
-            <Header />
-          </Route>
-           <Route path="/leagues/:idLeague">
-                  <League></League>
-           </Route>
-         </Switch>
-         </div>
-       </Router>
-       
-      
-       <Club></Club>
-
+      <CategoryContext.Provider value={[category, setCategory]}>
+           <Router>
+             <Switch>
+                  <Route path="/home">
+                     <Home/>
+                  </Route>
+                  <Route path="/description">
+                     <Description/>
+                  </Route>
+                 <Route exact path="/">
+                    <Home />
+                 </Route>
+            </Switch>
+            </Router>
+       </CategoryContext.Provider>
     </div>
   );
 }
